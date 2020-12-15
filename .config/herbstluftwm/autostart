@@ -35,13 +35,12 @@ hc keybind XF86AudioMute spawn amixer set Master toggle
 hc keybind XF86AudioRaiseVolume spawn amixer set Master 10%+
 hc keybind XF86AudioLowerVolume spawn amixer set Master 10%-
 hc keybind $Mod-e spawn xdg-open /
-hc keybind $Mod-u spawn xdg-open /mnt/daten/Kathi/uni/
+#hc keybind $Mod-u spawn xdg-open /mnt/daten/Kathi/uni/
 hc keybind XF86Sleep spawn systemctl hybrid-sleep
 hc keybind $Mod-b spawn rofi -combi-mode window,run -show combi -modi combi
 hc keybind $Mod-Shift-b spawn rofi -show run
 hc keybind $Mod-q spawn firefox &
 hc keybind $Mod-x spawn urxvt
-hc keybind $Mod-g spawn firefox https://www.guitartricks.com/login.php &
 
 
 # basic movement
@@ -56,18 +55,20 @@ hc keybind $Mod-k     focus up
 hc keybind $Mod-l     focus right
 
 # moving clients
-hc keybind $Mod-Shift-Left  shift left
-hc keybind $Mod-Shift-Down  shift down
-hc keybind $Mod-Shift-Up    shift up
-hc keybind $Mod-Shift-Right shift right
-hc keybind $Mod-Shift-h     shift left
-hc keybind $Mod-Shift-j     shift down
-hc keybind $Mod-Shift-k     shift up
-hc keybind $Mod-Shift-l     shift right
+hc keybind $Mod-Shift-h or / shift left / \
+    chain , lock , shift_to_monitor -l , focus_monitor -l , unlock
+hc keybind $Mod-Shift-j or / shift down / \
+    chain , lock , shift_to_monitor -d , focus_monitor -d , unlock
+hc keybind $Mod-Shift-k or / shift up / \
+    chain , lock , shift_to_monitor -u , focus_monitor -u , unlock
+hc keybind $Mod-Shift-l or / shift right / \
+    chain , lock , shift_to_monitor -r , focus_monitor -r , unlock
+#moving clients between workspaces
+#$Mod-Shift 1/2/...
 
 # splitting frames
 # create an empty frame at the specified direction
-#hc keybind $Mod-u       split   bottom  0.5
+hc keybind $Mod-u       split   bottom  0.5
 hc keybind $Mod-o       split   right   0.5
 # let the current frame explode into subframes
 hc keybind $Mod-Control-space split explode
