@@ -1,0 +1,8 @@
+URxvt*background: #141c21
+URxvt*foreground: white
+URxvt*font: xft:bitstream vera sans mono:size=7:antialias=true
+URxvt.iso14755: false
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.perl-ext-common: default,selection-to-clipboard
+URxvt.print-pipe: true
+URxvt.urgentOnBell: true
