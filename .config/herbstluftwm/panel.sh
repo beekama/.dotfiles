@@ -77,7 +77,7 @@ hc pad $monitor $panel_height
 
 	#I kept 'date' as varname:
 	### HERE ###
-	date +$'date\t '"$($pythonpath ~/.config/herbstluftwm/PanelContent.py)$separator"$'\t\t ^fg(#efefef)%H:%M, %a %d'
+	date +$'date\t '"$($pythonpath ~/.config/herbstluftwm/PanelContent.py)"$''
         
 	sleep 4 || break
     done > >(uniq_linebuffered) &
@@ -202,3 +202,4 @@ hc pad $monitor $panel_height
 } 2> /dev/null | dzen2 -w $panel_width -x $x -y $y -fn "$font" -h $panel_height \
     -e 'button3=;button4=exec:herbstclient use_index -1;button5=exec:herbstclient use_index +1' \
     -ta l -bg "$bgcolor" -fg '#efefef'
+
