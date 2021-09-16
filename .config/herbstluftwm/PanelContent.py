@@ -32,7 +32,7 @@ musik = str(musik).replace('b', '').rstrip()
 
 #time
 now = datetime.datetime.now()
-dow = now.strftime("%B ")
+dow = now.strftime("%A ")
 day = now.strftime("%d - ")
 time = now.strftime("%H:%M ")
 

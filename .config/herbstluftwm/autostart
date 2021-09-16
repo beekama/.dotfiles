@@ -36,7 +36,7 @@ hc keybind XF86AudioRaiseVolume spawn amixer set Master 10%+
 hc keybind XF86AudioLowerVolume spawn amixer set Master 10%-
 hc keybind $Mod-e spawn xdg-open /
 #hc keybind $Mod-u spawn xdg-open /mnt/daten/Kathi/uni/
-hc keybind XF86Sleep spawn systemctl hybrid-sleep
+hc keybind XF86Sleep spawn i3lock -i /home/kathi/Bilder/background/locked.png -t systemctl hybrid-sleep
 hc keybind $Mod-b spawn rofi -combi-mode window,run -show combi -modi combi
 hc keybind $Mod-Shift-b spawn rofi -show run
 hc keybind $Mod-q spawn firefox &
@@ -188,7 +188,7 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 # do multi monitor setup here, e.g.:
 # hc set_monitors 1280x1024+0+0 1280x1024+1280+0
 # or simply:
-# hc detect_monitors
+hc detect_monitors
 
 # find the panel
 panel=~/.config/herbstluftwm/panel.sh

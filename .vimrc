@@ -15,6 +15,7 @@ colorscheme desert
 set lazyredraw
 "visualize line the cursor is currently in
 set cursorline
+hi clear CursorLine
 "highlight all machtech son screen when searching - 
 set hlsearch
 "display some special characters
