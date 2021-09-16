@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -18,6 +20,8 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+
+HISTFILE=~/.bash_history
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -45,21 +49,21 @@ esac
 # should be on the output of commands, not on the prompt
 force_color_prompt=yes
 
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
+#if [ -n "$force_color_prompt" ]; then
+#    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+#	# We have color support; assume it's compliant with Ecma-48
+#	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+#	# a case would tend to support setf rather than setaf.)
+#	color_prompt=yes
+#    else
+#	color_prompt=
+#    fi
+#fi
 
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\w\$ ' # \u@\h:\w\$ 
+    PS1='${debian_chroot:+($debian_chroot)}\u@\w\$ ' # \u@\h:\w\$
 fi
 unset color_prompt force_color_prompt
 
@@ -88,9 +92,9 @@ fi
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
 
 #kathis aliase:
 alias "k:"="cd /mnt/daten/Kathi"
@@ -131,22 +135,40 @@ alias sman='~/scripts/searchMan.sh'
 alias cman='~/scripts/randomManC.sh'
 alias lman='~/scripts/randomManL.sh'
 alias ccat="pygmentize -g -O style=colorful,linenos=1"
-
+alias garmin="~/scripts/alias/garminAntfs.sh"
+alias yt="~/scripts/alias/youtubedl.sh"
+alias esp=". $HOME/code/esp/esp-idf/export.sh"
 export PATH=$PATH:~/application/Telegram/Telegram:/usr/sbin/
 export PATH=$PATH:~/scripts/
+export PATH=$PATH:/snap/bin/
 export LC_ALL=C
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 #color scheme for manpages:
 export LESS_TERMCAP_mb=$'\e[;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
+export LESS_TERMCAP_md=$'\e[1;32m' # syntax and keywords
+export LESS_TERMCAP_me=$'\e[0m' # some rows
+export LESS_TERMCAP_se=$'\e[0m' # first and last row background
+export LESS_TERMCAP_so=$'\e[01;33m' # statusbar and searchhighlights
+export LESS_TERMCAP_ue=$'\e[0m' # background
+export LESS_TERMCAP_us=$'\e[1;4;31m' #variables
+
+#"\C-j": echo "w"
+
+
 
 set -o vi
+
+## search file history - peco ##
+if ! [ -x "$(command -v peco)" ]; then
+  bind '"\C-r": history-incremental-pattern-search-backward'
+else
+  #reverse_search(){echo "$(tac $HISTFILE | peco)"}
+  alias rs_peco="tac $HISTFILE | peco"
+  bind -x '"\C-r": rs_peco'
+  PECO=/usr/bin/
+fi
+
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -183,4 +205,9 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+#pyenv
+export PATH="/home/kathi/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
