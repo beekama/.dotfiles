@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # basic settings and checks ############################################################
 #set YOUR python-path:
-pythonpath="/home/kathi/application/anaconda3/bin/python"
+pythonpath="/usr/bin/python3.9"
 
 hc() { "${herbstclient_command[@]:-herbstclient}" "$@" ;}
 monitor=${1:-0}
@@ -77,7 +77,7 @@ hc pad $monitor $panel_height
 
 	#I kept 'date' as varname:
 	### HERE ###
-	date +$'date\t '"$($pythonpath ~/.config/herbstluftwm/PanelContent.py)"$''
+	date +$'date\t '"$($pythonpath ~/.config/herbstluftwm/PanelContent.py)$separator"$'\t\t ^fg(#efefef)%H:%M, %Y-%m-%d'
         
 	sleep 4 || break
     done > >(uniq_linebuffered) &
@@ -202,4 +202,3 @@ hc pad $monitor $panel_height
 } 2> /dev/null | dzen2 -w $panel_width -x $x -y $y -fn "$font" -h $panel_height \
     -e 'button3=;button4=exec:herbstclient use_index -1;button5=exec:herbstclient use_index +1' \
     -ta l -bg "$bgcolor" -fg '#efefef'
-

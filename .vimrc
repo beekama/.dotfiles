@@ -30,6 +30,7 @@ syntax enable
 
 "MAPPING    
 inoremap jk <esc>
+noremap YY :x <CR>
 
 set backspace=2 "make backspace work like most other programs
 
