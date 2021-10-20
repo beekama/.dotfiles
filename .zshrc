@@ -4,7 +4,7 @@
 # https://erlangen-sheppy.medium.com/colour-linux-error-output-red-7923c0d7dd6e
 LD_PRELOAD="/home/kathi/extCode/colorredstderr-mirror/src/.libs/libcoloredstderr.so"
 COLORED_STDERR_FDS=2,
-export LD_PRELOAD CLORED_STDERR_FDS
+export LD_PRELOAD COLORED_STDERR_FDS
 
 if [[ $FIRST_RUN == "FALSE" ]]; then
     ;
@@ -60,6 +60,18 @@ alias ls='ls --color=auto'
 alias ..='cd ..'
 alias ...='cd ../../'
 alias exit='disown -a && exit'
+alias python='/usr/bin/python3.9'
+
+##monitors ##
+#first (and afterwards) 'herbstclient detect_monitors'
+alias xrandr-new='xrandr --output HDMI-2 --right-of eDP-1 --mode 3840x2160 --fb 8192x4320 --pos 0x0'
+alias xrandr-def='xrandr --output HDMI-2 --off'
+
+## whatever provides ##
+whateverprovides(){
+    apt-file search --regexp "bin/$1""$"
+}
+export whateverprovides
 
 # git bare repository for my dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
@@ -68,5 +80,4 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 ## path ##
 PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
 export PATH
-
 
