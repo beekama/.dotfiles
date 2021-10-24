@@ -45,7 +45,7 @@ hc keybind Shift-F12 spawn redshift -x
 hc keybind $Mod-q spawn firefox &
 hc keybind $Mod-x spawn urxvt
 hc keybind $Mod-Shift-x spawn ~/.config/herbstluftwm/hl_openCWD.py
-
+hc keybind XF86Display spawn ~/.config/herbstluftwm/hl_projection.sh
 
 # basic movement
 # focusing clients
