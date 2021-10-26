@@ -59,9 +59,11 @@ alias lr='ls -latr --color=auto'
 alias ls='ls --color=auto'
 alias ..='cd ..'
 alias ...='cd ../../'
+#alias -g ...='../..'
+#alias -g ....='../../..'
 alias exit='disown -a && exit'
 alias python='/usr/bin/python3.9'
-
+alias v='vim'
 ##monitors ##
 #first (and afterwards) 'herbstclient detect_monitors'
 alias xrandr-new='xrandr --output HDMI-2 --right-of eDP-1 --mode 3840x2160 --fb 8192x4320 --pos 0x0'
@@ -72,6 +74,12 @@ whateverprovides(){
     apt-file search --regexp "bin/$1""$"
 }
 export whateverprovides
+
+## where is string ##
+wherestring(){
+    grep -nr "$1" -e "$2"
+}
+export wherestring
 
 # git bare repository for my dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
