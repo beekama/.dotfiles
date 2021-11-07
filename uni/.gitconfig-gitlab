@@ -1,0 +1,7 @@
+[user]
+# Please adapt and uncomment the following lines:
+        name = bekama
+        email = kat.maurer@fau.de
+[commit]
+        gpgsign = true
+

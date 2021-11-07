@@ -1,0 +1,7 @@
+[user]
+# Please adapt and uncomment the following lines:
+	name = Kathrin Maurer
+	email = k.aus.w@gmx.de
+[commit]
+        gpgsign = true
+

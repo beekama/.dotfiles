@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+    name = Kathrin Maurer
+    email = k.aus.w@gmx.de
+[includeIf "gitdir:~/uni/*/"]
+    path = .gitconfig-gitlab
+[includeIf "gitdir:~/code/*/"]
+    path = .gitconfig-github
