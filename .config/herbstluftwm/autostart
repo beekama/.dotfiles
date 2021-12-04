@@ -30,22 +30,31 @@ hc keybind $Mod-Return spawn urxvt #  ${TERMINAL:-xterm} # use your $TERMINAL wi
 hc keybind $Mod-Shift-w spawn i3lock -i /home/kathi/Bilder/wallpaper/currenti3.png -t
 hc keybind XF86MonBrightnessDown spawn sudo /home/kathi/scripts/decbrightness
 hc keybind XF86MonBrightnessUp spawn sudo /home/kathi/scripts/inbrightness
-hc keybind Print spawn scrot -s ~/Bilder/screenshots/tmp.jpg
+hc keybind Print spawn flameshot gui
 hc keybind XF86AudioMute spawn amixer set Master toggle
 hc keybind XF86AudioRaiseVolume spawn amixer set Master 10%+
 hc keybind XF86AudioLowerVolume spawn amixer set Master 10%-
 hc keybind $Mod-e spawn xdg-open /
 hc keybind Control-l spawn i3lock -i /home/kathi/Bilder/wallpaper/currenti3.png -t
-hc keybind Control-Shift-l spawn systemctl hibernate
+hc keybind $Mod-Shift-w spawn systemctl hibernate
 hc keybind $Mod-b spawn rofi -combi-mode window,run -show combi -modi combi
 hc keybind $Mod-Shift-b spawn rofi -show run
 hc keybind Alt-Shift-b spawn rofi-pass
 hc keybind F12 spawn redshift -O 1500
+hc keybind Shift-XF86Favorites spawn dunstctl close-all
+hc keybind XF86Favorites spawn dunstctl set-paused toggle
 hc keybind Shift-F12 spawn redshift -x
 hc keybind $Mod-q spawn firefox &
+hc keybind $Mod-Control-q spawn firefox -private &
 hc keybind $Mod-x spawn urxvt
 hc keybind $Mod-Shift-x spawn ~/.config/herbstluftwm/hl_openCWD.py
 hc keybind XF86Display spawn ~/.config/herbstluftwm/hl_projection.sh
+
+# custom settings for UNI
+if [[ "$USER" == "be24fasa" ]]; then
+    hc keybind Control-l spawn xlock
+fi
+
 
 # basic movement
 # focusing clients
