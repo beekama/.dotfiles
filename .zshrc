@@ -33,14 +33,15 @@ HOST_SEPARATOR='@'
 SIMPLE_SEPARATOR=':'
 INPUT='~~~> '
 
-SEPARATOR_LINE=%F{$SEPARATOR_LINE_COLOR}$'${(r:$COLUMNS-10::\u2500:)}'%f
+TIME="%F{$EMOJI_COLOR} %D{%T}"
+SEPARATOR_LINE=%F{$SEPARATOR_LINE_COLOR}$'${(r:$COLUMNS-18::\u2500:)}'%f
 EMOJI=%F{$EMOJI_COLOR}$'\xA0\xA0\x28\x5E\x95\x5E\x29\x2F\x22'%f
 USER_NAME="%F{$USER_COLOR}%n%f"
 USER_NAME_SEPARATOR="%F{$HOST_SEPARATOR_COLOR}${HOST_SEPARATOR}%f"
 HOSTNAME="%F{$HOST_COLOR}%m%f"
 PATH="%F{$PATH_SEPARATOR_COLOR}:%f%F{$PATH_COLOR}%~%f"
 INPUT_SIGN=%F{$INPUT_COLOR}${INPUT}%f
-PS1="${SEPARATOR_LINE}${EMOJI}"$'\n'"${USER_NAME}${USER_NAME_SEPARATOR}${HOSTNAME}${PATH}"$'\n'"${INPUT_SIGN}"
+PS1="${SEPARATOR_LINE}${TIME}${EMOJI}"$'\n'"${USER_NAME}${USER_NAME_SEPARATOR}${HOSTNAME}${PATH}"$'\n'"${INPUT_SIGN}"
 
 ## colors for manpages ##
 export LESS_TERMCAP_mb=$'\e[01;31m' # blinking mode - red
@@ -68,6 +69,8 @@ alias v='vim'
 #first (and afterwards) 'herbstclient detect_monitors'
 alias xrandr-new='xrandr --output HDMI-2 --right-of eDP-1 --mode 3840x2160 --fb 8192x4320 --pos 0x0'
 alias xrandr-def='xrandr --output HDMI-2 --off'
+##backup
+alias backup='restic -r sftp:pi@raspi3:/media/secure/backup/thinKpad --verbose backup ~/'
 
 ## whatever provides ##
 whateverprovides(){
