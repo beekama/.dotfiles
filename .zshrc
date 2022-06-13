@@ -49,6 +49,17 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
+# SEARCH HISTORYFILE #
+if ! [ -x "$(command -v peco)" ]; then
+    bindkey '^R' history-incremental-pattern-search-backward
+else
+    ## bind peco to ctrl-R as a better reverse search than the buitin if it is availible
+    reverse_search(){print -z "$(tac ${HISTFILE} | peco)"}
+    zle -N rs_peco reverse_search
+    bindkey ^R rs_peco
+    PECO=/usr/bin/
+fi
+
 ## colors for manpages ##
 export LESS_TERMCAP_mb=$'\e[01;31m' # blinking mode - red
 export LESS_TERMCAP_md=$'\e[01;35m' # syntax and keywords | enter double-bright mode - bold, magenta
