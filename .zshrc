@@ -2,7 +2,7 @@
 
 # colorredstderr
 # https://erlangen-sheppy.medium.com/colour-linux-error-output-red-7923c0d7dd6e
-LD_PRELOAD="/home/kathi/extCode/colorredstderr-mirror/src/.libs/libcoloredstderr.so"
+LD_PRELOAD="$HOME/.libcoloredstderr.so"
 COLORED_STDERR_FDS=2,
 export LD_PRELOAD COLORED_STDERR_FDS
 
@@ -54,7 +54,9 @@ if ! [ -x "$(command -v peco)" ]; then
     bindkey '^R' history-incremental-pattern-search-backward
 else
     ## bind peco to ctrl-R as a better reverse search than the buitin if it is availible
-    reverse_search(){print -z "$(tac ${HISTFILE} | peco)"}
+    reverse_search(){
+        print -z "$(tac ${HISTFILE} | peco)"
+    }
     zle -N rs_peco reverse_search
     bindkey ^R rs_peco
     PECO=/usr/bin/
@@ -77,6 +79,7 @@ alias lr='ls -latr --color=auto'
 alias ls='ls --color=auto'
 alias ..='cd ..'
 alias ...='cd ../../'
+alias -g o="xdg-open"
 #alias -g ...='../..'
 #alias -g ....='../../..'
 alias exit='disown -a && exit'
