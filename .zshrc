@@ -48,6 +48,20 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+setopt incappendhistory
+
+## tab-complete ##
+zstyle ':completion:::::' completer  _expand _complete _prefix _ignored _approximate
+zstyle ':completion:*:expand:*' keep-prefix yes
+
+# allow autocomplete-navigation with arrowkeys
+zstyle ':completion:*' menu select #enable a menu which can be browsed with arrow keys
+# tab completion after pressing tab once (default is twice)
+setopt nolistambiguous
+# show list of tab-completing options
+zstyle ':completion:*:default' list-prompt '%p'
+# i forgot what this does but completion doesnt work without it
+autoload -Uz compinit; compinit 
 
 # SEARCH HISTORYFILE #
 if ! [ -x "$(command -v peco)" ]; then
@@ -71,7 +85,15 @@ export LESS_TERMCAP_so=$'\e[01;33m' # tatusbar and searchhighlights | enter stan
 export LESS_TERMCAP_ue=$'\e[0m' #background | leave underline mode
 export LESS_TERMCAP_us=$'\e[04;36m' #variables | enter underline mode - cyan
 
+## colors for ssh-connection (sheppy) ##
+ssh_color(){
+    printf '\033]708;yellow\007';
+    /usr/bin/ssh $@;
+    printf '\033]708;black\007';
+}
+
 ## alias ##
+alias ssh='ssh_color'
 alias ll='ls -lhs --color=auto'
 alias la='ls -A --color=auto'
 alias l='ls -CF --color=auto'
