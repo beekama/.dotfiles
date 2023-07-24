@@ -50,6 +50,9 @@ SAVEHIST=10000
 setopt appendhistory
 setopt incappendhistory
 
+# set keyboardlanguage
+setxkbmap -layout gb
+
 ## tab-complete ##
 zstyle ':completion:::::' completer  _expand _complete _prefix _ignored _approximate
 zstyle ':completion:*:expand:*' keep-prefix yes
@@ -117,6 +120,9 @@ alias backup='restic -r sftp:pi@raspi3:/media/secure/backup/thinKpad --verbose b
 #git
 #alias -g fixup="!function f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f()"
 alias storage='sftp u294754@u294754.your-storagebox.de'
+#bachelorabeit
+alias vis='blenderproc vis --depth_max=1 hdf5' 
+alias bb='cd /home/kathi/uni/bachelorarbeit/temp/blenderproc'
 
 ## whatever provides ##
 whateverprovides(){
@@ -135,6 +141,6 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 
 ## path ##
-PATH=~/extCode/pycharm-community-2022.1:/bin:/usr/bin:/usr/local/bin:~/.local/bin:${PATH}
+PATH=~/extCode/pycharm-community-2023.1/bin:/bin:/usr/bin:/usr/local/bin:~/.local/bin:${PATH}
 export PATH
-
+alias -g athq=kathi.atlantishq.de
