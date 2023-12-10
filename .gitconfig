@@ -1,9 +1,11 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-    name = Kathrin Maurer
-    email = k.aus.w@gmx.de
+	name = Kathrin Maurer
+	email = kat.maurer@fau.de
 [includeIf "gitdir:~/uni/*/"]
     path = .gitconfig-gitlab
 [includeIf "gitdir:~/code/*/"]
     path = .gitconfig-github
+[commit]
+    gpgsign = false

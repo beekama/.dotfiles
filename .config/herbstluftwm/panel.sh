@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # basic settings and checks ############################################################
 #set YOUR python-path:
 pythonpath="/usr/bin/python3.9"

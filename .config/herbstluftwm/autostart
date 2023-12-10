@@ -28,8 +28,8 @@ hc keybind $Mod-Return spawn urxvt #  ${TERMINAL:-xterm} # use your $TERMINAL wi
 
 #customized settings @kathi
 hc keybind $Mod-Shift-w spawn i3lock -i /home/kathi/Bilder/wallpaper/currenti3.png -t
-hc keybind XF86MonBrightnessDown spawn sudo /home/kathi/scripts/decbrightness
-hc keybind XF86MonBrightnessUp spawn sudo /home/kathi/scripts/inbrightness
+hc keybind XF86MonBrightnessDown spawn /home/kathi/code/scripts/decbrightness
+hc keybind XF86MonBrightnessUp spawn /home/kathi/code/scripts/inbrightness
 hc keybind Print spawn flameshot gui
 hc keybind XF86AudioMute spawn amixer set Master toggle
 hc keybind XF86AudioRaiseVolume spawn amixer set Master 10%+
@@ -44,7 +44,9 @@ hc keybind F12 spawn redshift -O 1500
 hc keybind Shift-XF86Favorites spawn dunstctl close-all
 hc keybind XF86Favorites spawn dunstctl set-paused toggle
 hc keybind Shift-F12 spawn redshift -x
+#hc keybind ISO_Level3_Shift-F12 spawn ~/.config/herbstluftwm/screenOff.sh
 hc keybind $Mod-q spawn firefox &
+hc keybind $Mod-Shift-p spawn firefox -private-window &
 hc keybind $Mod-Control-q spawn firefox -private &
 hc keybind $Mod-x spawn urxvt
 hc keybind $Mod-Shift-x spawn ~/.config/herbstluftwm/hl_openCWD.py
@@ -53,8 +55,9 @@ hc keybind XF86Display spawn ~/.config/herbstluftwm/hl_projection.sh
 # custom settings for UNI
 if [[ "$USER" == "be24fasa" ]]; then
     hc keybind Control-l spawn xlock
+elif [[ "$USER" == "kathi" ]]; then
+    hc keybind $Mod-t spawn ~/extCode/tor-browser_en-US/Browser/start-tor-browser
 fi
-
 
 # basic movement
 # focusing clients
@@ -79,7 +82,7 @@ hc keybind $Mod-Shift-l     shift right
 
 # splitting frames
 # create an empty frame at the specified direction
-#hc keybind $Mod-u       split   bottom  0.5
+hc keybind $Mod-u       split   bottom  0.5
 hc keybind $Mod-o       split   right   0.5
 # let the current frame explode into subframes
 hc keybind $Mod-Control-space split explode

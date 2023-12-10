@@ -25,6 +25,8 @@ set listchars=
 set listchars+=tab:>-
 "display trailing whitespaces as "-"
 set listchars+=trail:-
+"show line numbers
+set number
 
 syntax enable
 
@@ -41,15 +43,9 @@ endif
 
 
 
-" autocompletion
-set wildmode=list:longest,full
-"ignore case when completing files,...
-if exists('+wildignorecase')
-	set wildignorecase
-endif
-" already display matches while typing search command
-set incsearch
-
+" # AUTOCOMPLETE #
+" # python:
+" packadd! python-jedi
 
 "increase history of execution commands (:) and search patterns (/)
 set history=1000
