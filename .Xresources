@@ -1,22 +1,24 @@
-!URxvt.*.background: #000000
-URxvt.background: #141c21
+URxvt.*.background: #141c21
 URxvt.*.foreground: #EEEEEE
 URxvt.*.scrollBar: off
-URxvt.*.transparent: true
-URxvt.*.shading: 10
+URxvt.print-pipe: true
+!URxvt.*transparent: true
+!URxvt.*.shading: 10
 
-URxvt.font: xft:bitstream vera sans mono:size=10:antialias=true
+URxvt.perl-ext-common: default,selection-to-clipboard,tabbed,matcher,font-size,-tabbed
+
+
+URxvt.font:     xft:bitstream vera sans mono:size=10:antialias=true
 URxvt.boldFont: xft:bitstream vera sans mono:bold:size=10:antialias=true
 
 URxvt.print-pipe: true
 URxvt.urgentOnBell: true
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-Urxvt.perl-ext-common: default, selection-to-clipboard, font-size
 
-!font-size extension
-URxvt.keysym.C-Up: font-size:increase
-URxvt.keysym.C-Down: font-size:decrease
-URxvt.keysym.C-S-Up: font-size:incglobal
-URxvt.keysym.C-S-Down: font-size:decglobal
-URxvt.keysym.C-equal: font-size:reset
-URxvt.keysym.C-slash: font-size:show
+URxvt.keysym.C-Up:     font-size:decrease
+URxvt.keysym.C-Down:      font-size:increase
+URxvt.keysym.C-S-Up:        font-size:decglobal
+URxvt.keysym.C-S-Down:      font-size:incglobal
+URxvt.keysym.C-equal:     font-size:reset
+URxvt.keysym.C-slash:  font-size:show
+
+URxvt.iso14755          :false
