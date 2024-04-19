@@ -1,7 +1,7 @@
 #!/bin/bash
 # basic settings and checks ############################################################
 #set YOUR python-path:
-pythonpath="/usr/bin/python3.9"
+pythonpath="/usr/bin/python3"
 
 hc() { "${herbstclient_command[@]:-herbstclient}" "$@" ;}
 monitor=${1:-0}
@@ -55,13 +55,9 @@ else
       awk '$0 != l { print ; l=$0 ; fflush(); }' "$@"
     }
 fi
-
 hc pad $monitor $panel_height
 
 {
-
-
-
 
 ####### Event generator ##############################################################
     # based on different input data (mpc, date, hlwm hooks, ...) this generates events, formed like this:
@@ -141,7 +137,6 @@ hc pad $monitor $panel_height
         width=$($textwidth "$font" "$right_text_only    ")
         echo -n "^pa($(($panel_width - $width)))$right"
         echo
-
 
 
 ########### Data handling ################################################################
