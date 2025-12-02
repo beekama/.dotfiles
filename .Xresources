@@ -22,3 +22,4 @@ URxvt.keysym.C-equal:     font-size:reset
 URxvt.keysym.C-slash:  font-size:show
 
 URxvt.iso14755          :false
+URxvt.geometry: 400x400
